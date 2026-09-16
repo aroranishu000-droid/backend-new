@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "bookId": 101,
+    "bookName": "JavaScript Basics",
+    "author": "John Smith",
+    "category": "Programming",
+    "price": 500,
+    "quantity": 10
+  },
+  {
+    "id": 2,
+    "bookId": 102,
+    "bookName": "React for Beginners",
+    "author": "David Brown",
+    "category": "Programming",
+    "price": 600,
+    "quantity": 8
+  },
+  {
+    "id": 3,
+    "bookId": 103,
+    "bookName": "Node.js Guide",
+    "author": "Robert Wilson",
+    "category": "Programming",
+    "price": 550,
+    "quantity": 12
+  },
+  {
+    "id": 4,
+    "bookId": 104,
+    "bookName": "Python Programming",
+    "author": "James Anderson",
+    "category": "Programming",
+    "price": 450,
+    "quantity": 15
+  },
+  {
+    "id": 5,
+    "bookId": 105,
+    "bookName": "Database Fundamentals",
+    "author": "Michael Brown",
+    "category": "Database",
+    "price": 700,
+    "quantity": 7
+  }
+]

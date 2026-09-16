@@ -1,0 +1,26 @@
+[
+  {
+    "courseName": "MERN Stack",
+    "trainer": "Rahul Sharma",
+    "fees": 25000,
+    "mode": "Online",
+    "duration": "6 Months",
+    "status": "Active"
+  },
+  {
+    "courseName": "Java",
+    "trainer": "Priya Singh",
+    "fees": 20000,
+    "mode": "Offline",
+    "duration": "5 Months",
+    "status": "Active"
+  },
+  {
+    "courseName": "Python",
+    "trainer": "Amit Kumar",
+    "fees": 18000,
+    "mode": "Online",
+    "duration": "4 Months",
+    "status": "Inactive"
+  }
+]

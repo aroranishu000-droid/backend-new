@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul",
+    "course": "MERN Stack",
+    "city": "Delhi",
+    "email": "rahul@gmail.com",
+    "marks": 85,
+    "age": 22
+  },
+  {
+    "id": 2,
+    "name": "Priya",
+    "course": "Java",
+    "city": "Noida",
+    "email": "priya@gmail.com",
+    "marks": 90,
+    "age": 21
+  },
+  {
+    "id": 3,
+    "name": "Amit",
+    "course": "Python",
+    "city": "Gurgaon",
+    "email": "amit@gmail.com",
+    "marks": 78,
+    "age": 23
+  }
+]

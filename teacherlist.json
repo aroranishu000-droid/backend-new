@@ -1,0 +1,32 @@
+[
+  {
+    "teaid": 101,
+    "teaname": "Rahul Sharma",
+    "teasubject": "JavaScript",
+    "teaemail": "rahul@gmail.com",
+    "teacity": "Delhi",
+    "teaexperience": 5,
+    "teaphone": "9876543210",
+    "teaqualification": "MCA"
+  },
+  {
+    "teaid": 102,
+    "teaname": "Priya Singh",
+    "teasubject": "React",
+    "teaemail": "priya@gmail.com",
+    "teacity": "Noida",
+    "teaexperience": 3,
+    "teaphone": "9876543211",
+    "teaqualification": "B.Tech"
+  },
+  {
+    "teaid": 103,
+    "teaname": "Amit Kumar",
+    "teasubject": "Node.js",
+    "teaemail": "amit@gmail.com",
+    "teacity": "Gurgaon",
+    "teaexperience": 4,
+    "teaphone": "9876543212",
+    "teaqualification": "M.Tech"
+  }
+]
