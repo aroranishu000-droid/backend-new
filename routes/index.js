@@ -9,6 +9,8 @@ const teacher = require('../controller/teacher.js');
 const course = require('../controller/course.js');
 
 const books = require('../controller/books.js');
+
+const user = require('../controller/user.js');
   
 // ==================== STUDENT APIs ====================
 router.get("/home", (req, res) => {
@@ -62,6 +64,8 @@ router.put('/updatedata/:id', st.updatestudentdata);
 router.delete('/deletedata', st.deletestudentdata);
 
 
+
+
 // ==================== TEACHER APIs ====================
 
 router.get('/getteacherdata', teacher.getteacherdata);
@@ -94,6 +98,19 @@ router.put('/updatebooksdata/:id',books.updatebooksdata);
 //router.delete('/deletebooksdata',books.deletebooksdata);
 
 router.delete('/deletebookname', books.deletebookname);
+
+// ==================== USER API ====================
+
+
+router.get('/getuserdata', user.getuserdata);
+
+router.post('/postuserdata', user.postuserdata);
+
+router.put('/updateuserdata/:id', user.updateuserdata);
+
+router.delete('/deleteuserdata', user.deleteuserdata);
+
+
 
 
 

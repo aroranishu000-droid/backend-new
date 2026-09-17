@@ -1,63 +1,82 @@
 const connectDB = require("../database/db.js");
+const { sendEmail } = require("./email.js");
 
+// =========================
 // GET API
+// =========================
+
 const getstudentdata = async (req, res) => {
+    try {
+        const db = await connectDB();
 
-    try{
+        const student = db.collection("student");
 
-    
-    const db = await connectDB();
+        const result = await student.find({}).toArray();
 
-    const student = db.collection("student");
+        res.send({
+            status: 200,
+            message: "Student data retrieved successfully",
+            data: result
+        });
 
-    const result = await student.find({}).toArray();
-
-    res.send({
-        status: 200,
-        data: result
-    });
-}
-
-catch(error){
-     res.send({
-        status: 500,
-        message: "error retreiving student data",
-      error:error.message
-    });
-
-}
+    } catch (error) {
+        res.send({
+            status: 500,
+            message: "Error retrieving Student data",
+            error: error.message
+        });
+    }
 };
 
+
+// =========================
 // POST API
+// =========================
+
 const poststudentdata = async (req, res) => {
+    try {
 
-   
+        console.log(req.body);
 
-    console.log(req.body)
+        const db = await connectDB();
 
-     const db = await connectDB();
+        const student = db.collection("student");
 
-    const student = db.collection("student");
+        const result = await student.insertOne(req.body);
 
+        if (result.acknowledged === true) {
 
-    const result = await student.insertOne(req.body);
+            // Send email notification
+            const emailSent = await sendEmail(
+                req.body.email,
+                "Student Data Added",
+                `Hello ${req.body.name}, your data has been added successfully.`
+            );
 
-    if(result.acknowledged==true)
-{
-    res.send({
-        status: 200,
-        message: "Student data added successfully",
-        data: result
-    });
-}
-else
+            res.send({
+                status: 200,
+                message: "Student data added successfully",
+                data: result
+            });
+
+        } else {
+
+            res.send({
+                status: 400,
+                message: "Failed to add student data",
+                data: result
+            });
+        }
+
+    } catch (error) {
+
         res.send({
-    status: 400,
-        message: "failed to add student data",
-        data: result
-
+            status: 500,
+            message: "Error adding student data",
+            error: error.message
         });
-    };
+    }
+};
 
 
 // PUT API

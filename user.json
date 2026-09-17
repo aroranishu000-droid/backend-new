@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul Sharma",
+    "email": "rahul@gmail.com",
+    "username": "rahul",
+    "password": "12345"
+  },
+  {
+    "id": 2,
+    "name": "Priya Singh",
+    "email": "priya@gmail.com",
+    "username": "priya",
+    "password": "12345"
+  },
+  {
+    "id": 3,
+    "name": "Amit Kumar",
+    "email": "amit@gmail.com",
+    "username": "amit",
+    "password": "12345"
+  },
+  {
+    "id": 4,
+    "name": "Neha Verma",
+    "email": "neha@gmail.com",
+    "username": "neha",
+    "password": "12345"
+  },
+  {
+    "id": 5,
+    "name": "Rohan Gupta",
+    "email": "rohan@gmail.com",
+    "username": "rohan",
+    "password": "12345"
+  }
+]

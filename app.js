@@ -6,7 +6,7 @@ const app = express();
 app.set("view engine", "ejs");
 const indexRouter = require('./routes/index.js');
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());

@@ -22,7 +22,7 @@ const getteacherdata = async (req, res) => {
 catch(error){
      res.send({
         status: 500,
-        message: "error retreiving student data",
+        message: "error retreiving teacher data",
         data: result
     });
 
