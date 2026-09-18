@@ -40,42 +40,76 @@ const getuserdata = async (req, res) => {
 const postuserdata = async (req, res) => {
     try {
 
-        const { userid, username, email, password } = req.body;
+        const {
+            firstname,
+            lastname,
+            email,
+            password
+        } = req.body;
+
+        if (!firstname || !lastname || !email || !password) {
+            return res.status(400).send({
+                status: 400,
+                message: "Please fill all fields"
+            });
+        }
 
         const db = await connectDB();
         const user = db.collection("user");
 
         const data = {
-            userid: userid,
-            username: username,
+            firstname: firstname,
+            lastname: lastname,
             email: email,
             password: password
         };
 
         const result = await user.insertOne(data);
 
-        await em.sendEmail(
-            req.body.email,
-            "User Registration Successfully",
-            "User registered successfully."
-        );
+        if (result.acknowledged) {
 
-        res.send({
-            status: 200,
-            message: "User data inserted successfully",
-            data: result
-        });
+            const emailSent = await em.sendEmail(
+                email,
+                "EduTech - Registration Successful",
+                `Hello ${firstname} ${lastname},
+
+Your EduTech account has been created successfully.
+
+Email: ${email}
+
+Thank you,
+EduTech Team`
+            );
+
+            if (emailSent) {
+
+                return res.status(201).send({
+                    status: 201,
+                    message: "User registered successfully and email sent",
+                    data: result
+                });
+
+            } else {
+
+                return res.status(201).send({
+                    status: 201,
+                    message: "User registered successfully, but email could not be sent",
+                    data: result
+                });
+            }
+        }
 
     } catch (error) {
 
-        res.send({
+        console.log("Signup Error:", error);
+
+        res.status(500).send({
             status: 500,
             message: "Error adding user data",
             error: error.message
         });
     }
 };
-
 
 
 
