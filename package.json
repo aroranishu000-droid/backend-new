@@ -16,9 +16,20 @@
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "mongodb": "^7.6.0",
-    "nodemailer": "^10.0.10"
+    "multer": "^2.4.0",
+    "nodemailer": "^10.0.10",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroranishu000-droid/backend-new.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aroranishu000-droid/backend-new/issues"
+  },
+  "homepage": "https://github.com/aroranishu000-droid/backend-new#readme"
 }

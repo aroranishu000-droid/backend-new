@@ -1,8 +1,5 @@
-
 const connectDB = require("../database/db.js");
-const em= require("./email.js");
-
-
+const em = require("./email.js");
 
 // =========================
 // GET API
@@ -34,7 +31,7 @@ const getuserdata = async (req, res) => {
 
 
 // =========================
-// POST API
+// POST API - SIGNUP
 // =========================
 
 const postuserdata = async (req, res) => {
@@ -112,7 +109,6 @@ EduTech Team`
 };
 
 
-
 // =========================
 // PUT API
 // =========================
@@ -124,7 +120,6 @@ const updateuserdata = async (req, res) => {
         const updatedData = req.body;
 
         const db = await connectDB();
-
         const user = db.collection("user");
 
         const result = await user.updateOne(
@@ -171,7 +166,6 @@ const deleteuserdata = async (req, res) => {
         const userId = parseInt(req.query.id);
 
         const db = await connectDB();
-
         const user = db.collection("user");
 
         const result = await user.deleteOne({
@@ -206,9 +200,71 @@ const deleteuserdata = async (req, res) => {
 };
 
 
+// =========================
+// USER LOGIN API
+// =========================
+
+const userlogin = async (req, res) => {
+    try {
+
+        const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).send({
+                status: 400,
+                message: "Please enter email and password"
+            });
+        }
+
+        const db = await connectDB();
+        const user = db.collection("user");
+
+        const result = await user.findOne({
+            email: email,
+            password: password
+        });
+
+        if (result) {
+
+            return res.status(200).send({
+                status: 200,
+                message: "Login successful",
+                data: {
+                    firstname: result.firstname,
+                    lastname: result.lastname,
+                    email: result.email
+                }
+            });
+
+        } else {
+
+            return res.status(401).send({
+                status: 401,
+                message: "Invalid email or password"
+            });
+        }
+
+    } catch (error) {
+
+        console.log("Login Error:", error);
+
+        res.status(500).send({
+            status: 500,
+            message: "Login error",
+            error: error.message
+        });
+    }
+};
+
+
+// =========================
+// EXPORT ALL APIs
+// =========================
+
 module.exports = {
     getuserdata,
     postuserdata,
     updateuserdata,
-    deleteuserdata
+    deleteuserdata,
+    userlogin
 };
