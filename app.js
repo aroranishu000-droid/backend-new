@@ -30,53 +30,12 @@ app.use(
     swaggerUi.setup(swaggerSpec)
 );
 
-// Main homepage — FIX for Cannot GET /
+// Redirect main URL directly to Swagger
 app.get("/", (req, res) => {
-    res.status(200).send(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>My Node.js Backend</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style>
-                body {
-                    font-family: Arial, sans-serif;
-                    text-align: center;
-                    padding: 60px 20px;
-                    background: #f4f7fb;
-                }
-                .card {
-                    background: white;
-                    padding: 35px;
-                    border-radius: 12px;
-                    max-width: 600px;
-                    margin: auto;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                }
-                a {
-                    display: inline-block;
-                    margin: 10px;
-                    padding: 12px 20px;
-                    background: #2563eb;
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 6px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="card">
-                <h1>Backend Server is Running!</h1>
-                <p>Your Node.js and Express backend is online.</p>
-                <a href="/api-docs">Open Swagger API Docs</a>
-                <a href="/getdata">View Student Data</a>
-            </div>
-        </body>
-        </html>
-    `);
+    res.redirect("/api-docs");
 });
 
-// Existing routes — keep all your APIs
+// Keep all existing APIs
 app.use('/', indexRouter);
 
 app.listen(port, () => {
